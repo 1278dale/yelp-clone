@@ -12,8 +12,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
-  config.omniauth :facebook, "355255331324654
-  ", "58bcbdeb5739a2d7d90e6abc79ec6f8b"
+  
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -23,6 +22,8 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+
+
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -236,6 +237,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, Rails.application.secrets.FBKEY, Rails.application.secrets.SECRET_KEYS
+
+  # ENV["FBKEY"], ENV["SECRET_KEY"]
+
+  # config.omniauth :facebook, "APP_ID", "APP_SECRET",
+  # :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
